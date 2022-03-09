@@ -1,0 +1,1034 @@
+/************************************************** XiP-BS STYLESHEET */
+
+/************************************************** BASICS */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	/* body contains and controls all visible elements of the entire page, this is where you want to set things like the background of the page */
+	margin: 0;
+	padding: 0;
+	background: #195b71;
+	color: #fff;
+	font: 16px "Montserrat", "Lucida Grande", Verdana, Arial, sans-serif;
+	text-align: center;
+}
+
+img {
+	/* img controls anything that all of the images have in common; in this case, we make sure no images have borders (we can add borders to specific images later) */
+	border: 0;
+}
+
+a {
+	color: #30acd8
+}
+
+a:link, a:visited {
+	/* a:link, a:visited control the default link behavior for all of the links on the page (but most of the link behaviors are changed later in the CSS) */
+	color: #fff;
+	text-decoration: none;
+}
+
+a:hover {
+	/* a:hover controls the default hover behavior of all links */
+	color: #30acd8;
+}
+
+/************************************************** BOOTSTRAP OVERRIDES */
+.gutters-10 {
+	margin-left: -5px;
+	margin-right: -5px;
+}
+.gutters-10 > [class^=col] {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+
+/************************************************** HEADER */
+header {
+	/* header contains the gallery name, the search box, and the breadcrumbs */
+	padding-bottom: 10px;
+	background-color: #073654;
+	color: #fff;
+}
+
+header p {
+	/* one can edit header.php, within the commented <p></p> tags, to add a few words below the breadcrumbs, in which case this controls that text */
+	clear: both;
+	margin: 6px 25px;
+	text-align: center;
+	font-size: 1.2em;
+}
+
+#gallery-name {
+	/* #gallery-name controls the name of the gallery */
+	margin: 20px 0 0 0;
+	padding: 0 0 10px 0;
+	color: #fff;
+	font-size: 2em;
+	font-family: "Oswald", "Lucida Grande", Verdana, Arial, sans-serif;
+	text-transform: uppercase;
+}
+
+#breadcrumbs {
+	/* #breadcrumbs contains the breadcrumbs */
+	color: #ccc;
+	text-align: left;
+	font-weight: 300;
+	font-size: smaller;
+}
+
+#breadcrumbs ol {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+#breadcrumbs li {
+	float: left;
+	padding-left: 20px;
+	position: relative;
+}
+#breadcrumbs li::before {
+	display: block;
+	position: absolute;
+	top: 2px;
+	left: 6px;
+	font-family: 'Font Awesome 5 Free';
+	content: '\f105';
+	font-weight: 900;
+}
+
+#breadcrumbs li:first-of-type {
+	padding-left: 0;
+}
+#breadcrumbs li:first-of-type::before {
+	content: '';
+	display: none;
+}
+
+#breadcrumb-links {
+	/* #breadcrumb_links controls the breadcrumbs text that isn't a link */
+}
+
+#breadcrumb-links a {
+	/* #breadcrumb_links a controls the breadcrumbs text that is a link */
+	text-decoration: none;
+}
+
+#breadcrumb-links a:hover, #slideshow a:hover {
+	/* #breadcrumb_links a:hover, #slideshow a:hover a controls hover behavior of the breadcrumbs text that is a link */
+	text-decoration: underline;
+}
+
+@media only screen and (max-width: 575.98px) {
+	#breadcrumbs li:last-of-type {
+		display: none;
+	}
+}
+
+#slideshow a {
+	/* #slideshow a controls the text of the View as Slideshow link */
+	text-decoration: none;
+	content: '';
+	visibility: hidden;
+}
+
+#slideshow a::after {
+	visibility: visible;
+	display: inline;
+	font-family: 'Font Awesome 5 Free';
+	content: '\f302';
+	font-weight: 40;
+}
+
+#slideshow .print {
+	content: '';
+	visibility: hidden;
+}
+#slideshow .print::after {
+	visibility: visible;
+	display: inline;
+	font-family: 'Font Awesome 5 Free';
+	content: '\f02f';
+	font-weight: 900;
+}
+
+
+/************************************************** MAIN */
+#plog-wrapper {
+	/* #wrapper contains the entire content of the page; this is where one would center the page content, and give it a definite width, this is also where one would put borders around the content of the page */ 
+	margin: 0 auto;
+	position: relative;
+}
+
+main {
+	min-height: calc(100vh - 277px);
+	background: rgb(25,91,113);
+	background: -moz-linear-gradient(0deg, rgba(7,54,84,1) 0%, rgba(25,91,113,1) 15%, rgba(25,91,113,1) 85%, rgba(7,54,84,1) 100%);
+	background: -webkit-linear-gradient(0deg, rgba(7,54,84,1) 0%, rgba(25,91,113,1) 15%, rgba(25,91,113,1) 85%, rgba(7,54,84,1) 100%);
+	background: linear-gradient(0deg, rgba(7,54,84,1) 0%, rgba(25,91,113,1) 15%, rgba(25,91,113,1) 85%, rgba(7,54,84,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#195B71",endColorstr="#073654",GradientType=1);
+}
+main.collections {
+	min-height: calc(100vh - 258px);
+}
+main.album {
+	min-height: calc(100vh - 377px);
+}
+
+@media only screen and (min-width: 768px) {
+	main {
+		min-height: calc(100vh - 177px);
+	}
+	main.collections {
+		min-height: calc(100vh - 177px);
+	}
+	main.album {
+		min-height: calc(100vh - 227px);
+	}
+}
+
+/************************************************** FOOTER */
+footer {
+	/* footer contains the entire footer */
+	padding-top: 10px;
+	background-color: #073654;
+	color: #fff;
+	text-align: left;
+}
+footer.bottom {
+	padding-top: 0;
+	height: 20px;
+	line-height: 20px;
+	background-color: #000;
+	font-size: .675rem;
+}
+#pagination {
+	/* #pagination contains the pagination */
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 10px;
+}
+
+.page-link, .page-link-current {
+	/* .page_link controls the page numbers (link and non-link) */
+	position: relative;
+	display: inline-block;
+	margin-left: .5em;
+	padding: 0 .5em;
+	height: 40px;
+	line-height: 40px;
+	min-width: 20px;
+    background-color: Transparent;
+    border: none;
+    color: #fff;
+	text-align: center;
+	text-decoration: none;
+}
+
+a.pagPrev, a.pagNext {
+	text-decoration: none;
+	margin: 0 3px;
+}
+
+#pagination a {
+	/* #pagination a controls the link behavior of the page numbers */
+	text-decoration: none;
+}
+
+#pagination a:hover {
+	/* #pagination a:hover controls the link hover behavior of the page numbers */
+	text-decoration: none;
+}
+
+#search-container {
+	/* #search-container contains the seach box and the search button */
+	margin-bottom: 10px;
+}
+
+#search-container input {
+	/* #search-container input is the search input box */
+	float: left;
+	width: calc(100% - 100px);
+	height: 40px;
+	line-height: 40px;
+	padding: .5em;
+	border: 1px solid #ccc;
+}
+
+#search-container button {
+	/* #search-container button.submit is the search button */
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 .5em;
+	border: 1px solid #ccc;
+}
+
+#search-container button span::before {
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	content: '\f002';
+	margin-right: 5px;
+}
+
+#download-selected {
+	/* #download-selected contains the "Download Selected" button */
+	margin-bottom: 10px;
+}
+
+#download-selected button {
+	/* #download-selected button.submit controls the "Download Selected" button itself */
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 .5em;
+	border: 1px solid #ccc;
+}
+
+#download-selected button span::before {
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	content: '\f019';
+	margin-right: 5px;
+}
+
+#navigation-container {
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 10px;
+}
+
+#navigation-container select {
+	/* #navigation-container contains the "Jump to..." navigation drop down menu */
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	padding: .5em;
+	border: 1px solid #ccc;
+}
+
+#sort-control {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 10px;
+}
+
+#sort-control form,
+#sort-control .nomargin {
+	display: inline-block;
+	margin: 0;
+}
+
+#change_sortdir {
+	width: 140px;
+}
+
+#sort-control label {
+	/* #sort-control label contains the ["Sort by:" text and 'by which criteria' menu] and [ascending/descending menu] */
+	display: none;
+}
+
+#sort-control select {
+	/* #sort-control contains the "Sort by:" drop down menu */
+	height: 40px;
+	line-height: 40px;
+	padding: .5em;
+	border: 1px solid #ccc;
+}
+
+#sort-control select.change_sortby {
+	width: 50%;
+}
+
+#sort-control select.change_sortdir {
+	width: calc(50% - 25px);
+}
+
+#sort-control option {
+	/* option controls each item within the "Sort by:" drop down menu */
+	padding: .5em;
+}
+
+#change_sortby {
+	/* #change_sortby controls the 'by which criteria' menu */
+	width: calc(100% - 140px);
+}
+
+#rss-tag-container {
+	/* #rss-tag-container contains the rss image and link */
+	text-align: right;
+}
+
+#rss-tag-container a::after {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 5px;
+	font-family: 'Font Awesome 5 Free';
+	content: '\f09e';
+	font-weight: 900;
+}
+
+#rss-image {
+	/* #rss-image controls the rss image */
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
+.link-back {
+	/* #link-back controls the "Powered by Plogger" text */
+	font-size: .675rem;
+}
+
+.link-back a {
+	/* #link-back a controls the link behavior of the "Powered by Plogger" text */
+}
+
+.credit {
+	/* .credit controls the "Design by ardamis.com" text */
+	font-size: .675rem;
+}
+
+.credit a {
+	/* .credit a controls the link behavior of the "Design by ardamis.com" text */
+}
+
+.credit a:hover {
+	/* .credit a:hover controls the hover behavior of the "Design by ardamis.com" link text */
+}
+
+/************************************************** THUMBNAIL CONTAINER */
+#thumbnail-container {
+	/* #thumbnail-container contains the entire list of all collections or the entire list of all albums, as appropriate */
+}
+.thumbcontainer {
+	position: relative;
+	text-align: center;
+	margin-bottom: 10px;
+	min-height: 180px;
+	overflow: hidden;
+    white-space: nowrap;
+	border: 1px solid #073654;
+	border-radius: 5px !important;
+	opacity: 1;
+    background-color: rgba(0,0,0,.5);
+	transition: border .25s ease-in,color .25s ease-in;
+}
+.thumbcontainer a
+{
+	display: inline-block;
+    text-decoration: none;
+	text-align: center;
+	vertical-align:middle;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	color: #fff;
+}
+.thumbcontainer a::before {
+	display: block;
+	position: relative;
+	content: '';
+	padding-top: 100%;
+}
+.thumbcontainer .photos {
+	/* .thumbcontainer img controls the thumbnail image itself */
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: #ccc;
+	padding: 0px;
+	vertical-align: middle;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	object-position: center center;
+	opacity: .8;
+	-webkit-transition: all .25s ease-in-out;
+	-moz-transition: all .25s ease-in-out;
+	-ms-transition: all .25s ease-in-out;
+	-o-transition: all .25s ease-in-out;
+	transition: all .25s ease-in-out;
+}
+.thumbcontainer:hover .photos
+{
+	/* .thumbcontainer:hover img controls the thumbnail image hover behavior */
+    background-color: rgba(7,54,84, 0.8);
+	border-color: #fff;
+	opacity: 1;
+}
+.thumbcontent
+{
+	position: relative;
+	height: 4em;
+	padding: .5em;
+	background-color: #073654;
+	color: #fff;
+	transition: background-color .25s ease-in,color .25s ease-in;
+}
+.thumbcontainer:hover .thumbcontent
+{
+	background-color: #1F6F88;
+	color: #fff;
+}
+@media only screen and (max-width: 575.98px) {
+	.thumbcontent
+	{
+		min-height: 60px;
+	}
+}
+.thumbcontent p
+{
+	width: 100%;
+	margin: 0 auto;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
+}
+.thumbcontent p.collection-title
+{
+	font-weight: bold;
+}
+.thumbcontent p.description
+{
+	font-size: smaller;
+	color: #ccc;
+}
+
+/************************************************** MESSAGES */
+#no-pictures-msg {
+	/* #no-pictures-msg controls the "no collections", "no albums", and "no picture" messages displayed when a visitor goes to a page without collections, albums, or a picture */
+	margin: 50px;
+	text-align: justify;
+}
+
+#error-404 {
+	/* error-404 controls the "not found" message received when going to a non-existent URL */
+	margin: 50px;
+	text-align: justify;
+}
+
+/************************************************** CSS CHECKBOX */
+.checkbox {
+	/* .checkbox controls the appearance of the checkbox on all pages */
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	color: #fff;
+}
+
+.checkbox input[type="checkbox"] {
+	opacity: 0;
+}
+
+.checkbox label {
+    position: relative;
+    display: inline-block;
+
+	text-shadow: 1px 1px 5px rgba(0,0,0,0.75);
+    
+    /*16px width of fake checkbox + 6px distance between fake checkbox and text*/
+    padding-left: 22px;
+}
+
+.checkbox label::before,
+.checkbox label::after {
+    position: absolute;
+    content: "";
+    
+    /*Needed for the line-height to take effect*/
+    display: inline-block;
+}
+
+/*Outer box of the fake checkbox*/
+.checkbox label::before{
+    height: 16px;
+    width: 16px;
+    
+    border: 1px solid;
+	left: 0px;
+
+	-webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);	
+    
+    /*(24px line-height - 16px height of fake checkbox) / 2 - 1px for the border
+     *to vertically center it.
+     */
+    top: 3px;
+}
+
+/*Checkmark of the fake checkbox*/
+.checkbox label::after {
+    height: 5px;
+    width: 9px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    
+    transform: rotate(-45deg);
+    
+    left: 4px;
+    top: 7px;
+}
+
+/*Hide the checkmark by default*/
+.checkbox input[type="checkbox"] + label::after {
+    content: none;
+}
+
+/*Unhide on the checked state*/
+.checkbox input[type="checkbox"]:checked + label::after {
+    content: "";
+}
+
+/*Adding focus styles on the outer-box of the fake checkbox*/
+.checkbox input[type="checkbox"]:focus + label::before {
+    outline: #30ACD8 auto 5px;
+}
+
+
+
+
+/************************************************** ORIGINAL CSS BELOW, MOVE ABOVE LINE IF USED, DELETE WHEN NOT USED */
+
+
+/* Begin collection and album page styles */
+
+#collections {
+	/* #collections contains the entire list of all collections or the entire list of all albums, as appropriate (yes, it's redundant to #thumbnail-container) */
+}
+
+.collection {
+	/* .collection contains each individual collection or album in the list, as appropriate */
+}
+
+.collection-image-link {
+}
+
+.collection-image-link:hover {
+}
+
+.photos {
+	/* .photos controls the thumbnail picture on the collection(s) and album pages */
+}
+
+.collection p {
+	/* .collection p controls the collection or album description */
+}
+
+.collection h2 {
+	/* .collection h2 controls the collection or album title */
+}
+
+.collection h2 a {
+	/* .collection h2 controls the link behavior of the collection or album title */
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+}
+
+.collection h2 a:hover {
+	/* .collection h2:hover controls the hover behavior of the collection or album title */
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(0,255,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(0,255,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(0,255,0,1);
+}
+
+.meta-header {
+	/* .meta-header controls the "Contains X Albums" or "Contains X Pictures" text */
+	font-size: 75%;
+}
+
+.thumbnail p {
+	/* .thumbnail p controls the description of the Collection or Album, as appropriate */
+	/* width is equal to the width of the thumbnail image, set inline in album.php */
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+}
+
+/* Begin album page styles */
+
+.slides {
+	/* ul.slides controls the unordered list of the thumbnails of images within an album */
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+}
+
+.thumbnail {
+	/* ul.slides li controls each list item within the unordered list of the thumbnails of images within an album */
+	/* width is calculated by PHP in the HTML, style is applied inline */
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+}
+
+.thumbnail img {
+	/* ul.slides li img controls the thumbnail image itself */
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+}
+
+.thumbnail a {
+	/* ul.slides li a controls the thumbnail image link behavior */
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+}
+
+.thumbnail img:hover {
+	/* ul.slides li img:hover controls the thumbnail image hover behavior */
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(0,255,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(0,255,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(0,255,0,1);
+}
+
+/* Begin "picture" page styles */
+
+#big-picture-container {
+	/* #big-picture-container contains the picture, the prev/next buttons, the camera details and the thumbnail nav (if enabled) */
+	border: 0px solid Transparent;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+.picture-title {
+	/* .picture-title controls the picture title */
+	margin: 0 auto 6px;
+	text-align: center;
+	font-size: 1.3em;
+	letter-spacing: 1px;
+	color: #fff;
+}
+
+.date {
+	/* .date controls the picture date */
+	margin: 0 -15px;
+	line-height: 36px;
+	background-color: #073654;
+	color: #ccc;
+	font-size: .75rem;
+	letter-spacing: 1px;
+	text-align: center;
+}
+
+#nav-link-img-prev, #nav-link-img-next {
+	/* #nav-link-img-prev, #nav-link-img-next control those elements that both the prev and next buttons have in common */
+	display: inline;
+	margin: 5px 0 0;
+}
+
+#nav-link-img-prev {
+	/* #nav-link-img-prev controls the prev button */
+	float: left;
+}
+
+#nav-link-img-next {
+	/* #nav-link-img-next controls the next button */
+	float: right;
+}
+
+#nav-link-img-prev a {
+	/* #nav-link-img-prev a controls the text of the prev button */
+	padding: 5px 15px;
+	color: #01b4e2;
+}
+
+#nav-link-img-next a {
+	/* #nav-link-img-next a controls the text of the next button */
+	padding: 5px 10px;
+	color: #01b4e2;
+}
+
+#nav-link-img-prev a:hover, #nav-link-img-next a:hover {
+	/* #nav-link-img-prev a:hover, #nav-link-img-next a:hover controls the common link behavior of the prev/next buttons  */
+	background: #01b4e2;
+	color: #fff;
+}
+
+#picture-holder {
+	/* #picture-holder contains the picture */
+	margin: 10px -15px 0;
+}
+
+.photos-large {
+	/* .photos-large controls the picture itself */
+	background: Transparent;
+	max-width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
+#picture-holder a {
+	display: block;
+}
+
+#picture-holder a:hover {
+	/* #picture-holder a:hover controls the hover behavior of the picture itself */
+}
+
+#picture-description {
+	/* #picture-description controls the picture's description */
+	margin: 0 -15px;
+	padding: 15px;
+	background-color: #073654;
+	font-size: 1.1em;
+	text-align: center;
+}
+
+/* Exif stuff is for the 'camera details' table */
+#exif-toggle {
+	margin: 0 -15px;
+	padding: 0 15px;
+	background-color: #073654;
+	border-top: 1px solid #ccc;
+	font-size: smaller;
+}
+
+#exif-toggle a {
+	display: block;
+	height: 36px;
+	line-height: 36px;
+	color: #30acd8;
+}
+
+#exif-toggle-container {
+	margin: 0 -15px;
+	padding: 0 15px;
+	background-color: #073654;
+	background-image: linear-gradient(#073654, #195b71);
+}
+
+#show_info-exif-table.hidden {
+	padding: 0;
+	max-height: 0px;
+	opacity: 0;
+}
+
+#show_info-exif-table {
+	overflow: hidden;
+
+	padding: 15px 0;
+	max-height: 200px;
+	opacity: 1;
+	-webkit-transition: all .5s ease .25s;
+	-moz-transition: all .5s ease .25s;
+	-ms-transition: all .5s ease .25s;
+	-o-transition: all .5s ease .25s;
+	transition: all .5s ease .25s;
+}
+
+#exif-data {
+	margin: 0 auto 0;
+	text-align: left;
+	font-size: smaller;
+}
+
+#exif-data td {
+	vertical-align: top;
+}
+
+#exif-data td.exif-label {
+	text-align: right;
+	padding-right: 10px;
+	width: 50%;
+}
+
+#exif-data td.exif-info {
+	text-align: left;
+	padding-right: 10px;
+	width: 50%;
+	color: #ccc;
+}
+
+/* Begin thumbnail navigation styles */
+
+#thumb-nav {
+	/* #thumb-nav controls the unordered list that comprises the thumbnail navigation */
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+
+	list-style-type: none;
+	margin: 25px -5px;
+}
+
+#thumb-nav li {
+	/* #thumb-nav li controls each unordered list item that comprises the thumbnail navigation button */
+	box-sizing: border-box;
+	padding: 5px;
+}
+
+#thumb-nav li img {
+	/* #thumb-nav li img controls the image within each unordered list item that comprises the thumbnail navigation button */
+	max-height: 100%;
+	min-width: 40px;
+	width: 100%;
+	max-width: 80px;
+	object-fit: cover;
+	vertical-align: bottom;
+	background: #073654;
+	padding: 3px;
+	border: 1px solid #073654;
+}
+
+#thumb-nav li img:hover {
+	/* #thumb-nav li img:hover controls the hover behavior of the image within each unordered list item that comprises the thumbnail navigation button, wheee! */
+	background: #30acd8;
+	border-color: #30acd8;
+}
+
+#thumb-nav li.current img,
+#thumb-nav li.current img:hover {
+	background: #fff;
+	border-color: #fff;
+}
+
+/* Begin comment styles */
+
+#comment-section {
+	/* #comment-section contains the comments, the "post a comment" input fields, and the submit button */
+	margin: 0 auto;
+	text-align: left;
+}
+
+.comment-heading {
+	/* .comment-heading controls the "Comments:" and "Post a comment:" headings */
+	margin: 12px 0 0 0;
+	font-size: 1.4em;
+}
+
+#comment-section form p {
+	/* #comment-section form p contains the "post a comment" input fields */
+	margin: 6px 0;
+}
+
+#comment-section input, 
+#comment-section textarea {
+	max-width: 100%;
+}
+@media (max-width: 767.98px) {
+	#commentform p {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	#commentform p > input,
+	#commentform p > textarea {
+		order: 2;
+		width: 100%;
+	}
+	#commentform p > span {
+		order: 1;
+		display: block;
+		width: 100%;
+		color: #ccc;
+	}
+}
+
+.comment, .comment-alt {
+	/* .comment, .comment_alt control those elements that all comments have in common */
+	border-top: 1px solid #dfded6;
+	margin: 0;
+	padding: 15px;
+	list-style: none inside;
+}
+
+.comment-alt {
+	/* .comment_alt controls those elements that every other comment has in common, eg: a different colored background */
+	background: #effbfb;
+}
+
+.comments p {
+	/* .comments p controls paragraphs within each comment */
+	margin: 0;
+	font-size: 1.1em;
+	line-height: 1.3em;
+	padding: 0 0 15px;
+}
+
+.comments cite {
+	/* .comments cite controls the "Comment by So-and-so - Posted on DATE" text */
+	margin-top: 8px;
+	padding: 5px 5px 5px 23px;
+	color: #000;
+	background: url("images/com-bubble.gif") no-repeat 0 5px ;
+	font-size: 1.0em;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	height: 28px;
+}
+
+.comments-closed {
+	/* .comments-closed controls the "Comments closed." message if comments are disabled */
+	text-align: left;
+	margin-top: 25px;
+	font-size: 1.1em;
+}
+
+.comment-input-button input {
+	/* .comment-input-button input controls the "Post Comment" submit button */
+	padding: 2px 6px;
+}
+
+.actions {
+	/* .actions controls the moderation message when a comment is submitted, if moderation is enabled */
+	width: 500px;
+	margin: 15px 0 15px 0;
+	padding: 8px 8px 8px 30px;
+	border: 1px solid #bb0;
+	font-size: 1.1em;
+	color: #000;
+	background: #ffffe0 url("images/alert.gif") no-repeat 5px 8px;
+}
+
+.errors {
+	/* .errors controls the error message when there is a problem with a comment */
+	max-width: 720px;
+	margin: 15px 0 15px 0;
+	padding: 8px 8px 8px 30px;
+	border: 1px solid maroon;
+	font-size: 1.1em;
+	color: #000;
+	background: #f5a7ab url("images/null.gif") no-repeat 5px 5px;
+}
+
+.field-error {
+	/* .field-error highlights field where error needs to be corrected when there is a problem with a comment */
+	border: 1px solid maroon;
+	background-color: #f5a7ab;
+}
+
+/* Begin slideshow page styles */
+
+.large-thumb-toolbar {
+	/* .large-thumb-toolbar controls the "Stop", "Rewind", "Fast-forward", etc. buttons on the slideshow page */
+	padding: 15px 0;
+	text-align: center;
+	margin: auto;
+}
+
+.large-thumb-toolbar a {
+	/* .large-thumb-toolbar a controls the link behavior of the "Stop", "Rewind", "Fast-forward", etc. buttons on the slideshow page */
+	padding: 0 4px;
+}
+
+
+/* Hides from IE-mac \*/
+* html .clearfix {
+	height: 1%;
+}
+/* End hide from IE-mac */
