@@ -95,7 +95,7 @@ if (!defined('PLOGGER_EMBEDDED') || PLOGGER_EMBEDDED == '') {
 if ($config['use_mod_rewrite'] == 1 && $config['embedded'] == 0) {
   $config['baseurl'] = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
   // Verify URL for a trailing slash.  If not, add one.
-  if ($config['baseurl']{strlen($config['baseurl'])-1} != '/') {
+  if ($config['baseurl'][strlen($config['baseurl'])-1] != '/') {
     $config['baseurl'] = $config['baseurl'].'/';
   }
 // otherwise just use our cleaned up version of $_SERVER['PHP_SELF'] from plog-globals.php
