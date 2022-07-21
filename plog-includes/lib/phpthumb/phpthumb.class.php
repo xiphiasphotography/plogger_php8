@@ -3435,8 +3435,6 @@ if (false) {
 			$this->DebugMessage('ImageMagickThumbnailToGD() failed', __FILE__, __LINE__);
 		}
 
-		$this->DebugMessage('getimagesizeinfo() has no info,' + $this->getimagesizeinfo, __FILE__, __LINE__);
-
 		$this->source_width  = $this->getimagesizeinfo[0];
 		$this->source_height = $this->getimagesizeinfo[1];
 
